@@ -60,10 +60,10 @@ impl IdGenerator {
     ///
     /// Returns an error if `datacenter_id` or `machine_id` does not fit within 5 bits.
     pub fn new(epoch: SystemTime, datacenter_id: i32, machine_id: i32) -> Result<Self, IdError> {
-        if datacenter_id > 32 {
+        if datacenter_id >= Flake::DATACENTER_MAX {
             return Err(IdError::InvalidDatacenterId(datacenter_id));
         }
-        if machine_id > 32 {
+        if machine_id >= Flake::MACHINE_MAX {
             return Err(IdError::InvalidMachineId(machine_id));
         }
 

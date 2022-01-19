@@ -10,12 +10,17 @@ impl Flake {
 
     pub(crate) const DATACENTER_SHIFT: u64 = 17;
     pub(crate) const DATACENTER_MASK: u64 = 0x3E0000;
+    pub(crate) const DATACENTER_BITS: u64 = 5;
+    pub(crate) const DATACENTER_MAX: i32 = (1 << Self::DATACENTER_BITS);
 
     pub(crate) const MACHINE_SHIFT: u64 = 12;
     pub(crate) const MACHINE_MASK: u64 = 0x1F000;
+    pub(crate) const MACHINE_BITS: u64 = 5;
+    pub(crate) const MACHINE_MAX: i32 = (1 << Self::MACHINE_BITS);
 
     pub(crate) const SEQUENCE_MASK: u64 = 0xFFF;
-    pub(crate) const SEQUENCE_MAX: i32 = 4096;
+    pub(crate) const SEQUENCE_BITS: u64 = 12;
+    pub(crate) const SEQUENCE_MAX: i32 = (1 << Self::SEQUENCE_BITS);
 
     /// Creates a new flake.
     ///
